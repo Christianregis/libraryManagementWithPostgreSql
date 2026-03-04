@@ -37,6 +37,7 @@ public class PublicController {
         user.setPrenom(userDto.getPrenom());
         user.setEmail(userDto.getEmail());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setConfirm_password(userDto.getConfirm_password());
         user.setRole(Role.MEMBER);
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.saveUser(user).toDto());
     }
@@ -49,6 +50,6 @@ public class PublicController {
                         loginRequest.getPassword()
                 )
         );
-        return ResponseEntity.ok("Connexion reussie !");
+        return ResponseEntity.ok(authentication.getPrincipal());
     }
 }

@@ -32,6 +32,8 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String password;
     @Column(nullable = false)
+    private String confirm_password;
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
     @Column(nullable = false)
@@ -42,7 +44,7 @@ public class User implements UserDetails {
     private List<Borrow> borrows;
 
     public UserDto toDto(){
-        return new UserDto(getName(), getPrenom(), getEmail(), getPassword(), getId(), getRole().name());
+        return new UserDto(getName(), getPrenom(), getEmail(), getPassword(), getId(), getRole().name(), getConfirm_password());
     }
 
     @Override

@@ -11,15 +11,17 @@ public class UserDto {
     private String prenom;
     private String email;
     private String password;
+    private String confirm_password;
     private String role;
 
 
-    public UserDto(String name, String prenom, String email, String password, Long id, String role) {
+    public UserDto(String name, String prenom, String email, String password, Long id, String role, String confirm_password) {
         this.name = name;
         this.prenom = prenom;
         this.email = email;
         this.password = password;
         this.id = id;
         this.role = role;
+        this.confirm_password = confirm_password;
     }
 }
