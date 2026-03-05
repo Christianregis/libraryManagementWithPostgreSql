@@ -37,6 +37,10 @@ public class SecurityConfig {
                 .requestMatchers("/api/members/**").hasRole("MEMBER")
                         .requestMatchers("/api/auth/register").permitAll()
                         .requestMatchers("/api/auth/login").permitAll()
+                        .requestMatchers(
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**"
+                        ).permitAll()
                 .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
         return http.build();
