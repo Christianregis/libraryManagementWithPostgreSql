@@ -12,7 +12,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Entite Livre
+ */
 @Setter
 @Getter
 @Entity(name = "books")

@@ -8,6 +8,9 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
+/**
+ * Entites Emprunts
+ */
 @Entity(name = "loans")
 @Getter
 @Setter

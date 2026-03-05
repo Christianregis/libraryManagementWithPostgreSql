@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Service pour les livres
+ */
 @Service
 public class BookService {
     final BookRepository bookRepository;
@@ -17,10 +20,21 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    public BookDto saveBook(Book book){
-        return bookRepository.save(book).toDto();
+    /**
+     *
+     * @param book Book
+     * @return BookDto
+     */
+    public Book saveBook(Book book){
+        return bookRepository.save(book);
     }
 
+    /**
+     *
+     * @param id Long
+     * @param newBook Book
+     * @return Book
+     */
     public Book updateBook(Long id, Book newBook){
         Book book = bookRepository.findById(id).orElse(null);
         if (book != null){
@@ -34,10 +48,19 @@ public class BookService {
         return null;
     }
 
+    /**
+     *
+     * @return List<Book>
+     */
     public List<Book> getAllBooks(){
         return bookRepository.findAll();
     }
 
+    /**
+     *
+     * @param id Long
+     * @return Book | null
+     */
     public Book getBookInformation(Long id){
         Book book = bookRepository.findById(id).orElse(null);
         if (book != null){
@@ -46,6 +69,11 @@ public class BookService {
         return null;
     }
 
+    /**
+     *
+     * @param id Long
+     * @return Book | null
+     */
     public Book findBookById(Long id){
         Book book = bookRepository.findById(id).orElse(null);
         if (book != null){
@@ -54,6 +82,11 @@ public class BookService {
         return null;
     }
 
+    /**
+     *
+     * @param id Long
+     * @return Boolean
+     */
     public Boolean deleteBooK(Long id){
         Book book = bookRepository.findById(id).orElse(null);
         if (book != null){
@@ -63,19 +96,38 @@ public class BookService {
         return false;
     }
 
+    /**
+     *
+     * @return Long
+     */
     public long getBooksCount(){
         return bookRepository.count();
     }
     // Recherche de livres ici
 
+    /**
+     *
+     * @param auteur String
+     * @return List
+     */
     public List<Book> searchBooksByAuthor(String auteur){
         return bookRepository.findBooksByAuteurContainingOrderByCreatedAt(auteur);
     }
 
+    /**
+     *
+     * @param title String
+     * @return List
+     */
     public List<Book> searchBooksByTitle(String title){
         return bookRepository.findBooksByTitleContainsOrderByCreatedAtDesc(title);
     }
 
+    /**
+     *
+     * @param category Category
+     * @return List
+     */
     public List<Book> searchBooksByCategory(Category category){
         return bookRepository.findBooksByCategory(category);
     }

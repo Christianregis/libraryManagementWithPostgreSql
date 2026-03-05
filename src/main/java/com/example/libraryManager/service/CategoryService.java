@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-
+/**
+ * Service de gestion des categories
+ */
 @Service
 public class CategoryService {
     public final CategoryRepository categoryRepository;

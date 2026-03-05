@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Gestion des pages accecibles a tous
+ */
 @RestController
 @RequestMapping("/api/auth")
 public class PublicController {
@@ -24,12 +27,23 @@ public class PublicController {
     private final AuthenticationManager authenticationManager;
     private final PasswordEncoder passwordEncoder;
 
+    /**
+     * Contructeur
+     * @param userService UserService
+     * @param authenticationManager AuthenticationManager
+     * @param passwordEncoder PasswordEncoder
+     */
     public PublicController(UserService userService, AuthenticationManager authenticationManager, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.authenticationManager = authenticationManager;
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     * Enregister un future membre
+     * @param userDto UserDto
+     * @return ResponseEntity
+     */
     @PostMapping("/register")
     public ResponseEntity<UserDto> register(@RequestBody UserDto userDto){
         User user = new User();
@@ -42,6 +56,11 @@ public class PublicController {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.saveUser(user).toDto());
     }
 
+    /**
+     * connecter un utilisateur
+     * @param loginRequest LoginRequest(DTO)
+     * @return ResponseEntity
+     */
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest){
         Authentication authentication = authenticationManager.authenticate(

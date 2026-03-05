@@ -7,6 +7,9 @@ import lombok.Setter;
 
 import java.util.List;
 
+/**
+ * Entites pour les Categories
+ */
 @Entity(name = "category")
 @Getter
 @Setter

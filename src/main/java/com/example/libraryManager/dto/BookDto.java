@@ -3,6 +3,9 @@ package com.example.libraryManager.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * DTO pour les livres
+ */
 @Getter
 @Setter
 public class BookDto {

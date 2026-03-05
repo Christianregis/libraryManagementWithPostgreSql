@@ -15,7 +15,9 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
-
+/**
+ * Entite pour l'Utilisateur
+ */
 @Entity(name = "users")
 @Getter
 @Setter

@@ -5,6 +5,9 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
+/**
+ * DTO pour les emprunts et retours
+ */
 @Getter
 @Setter
 public class BorrowDto {

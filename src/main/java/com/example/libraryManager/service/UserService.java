@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * Service de gestion des utlisateurs
+ */
 @Service
 public class UserService {
     public final UserRepository userRepository;
